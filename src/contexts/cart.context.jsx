@@ -1,4 +1,5 @@
 import { createContext, useReducer, useEffect, useState } from 'react';
+import { createAction } from '../utils/reducer/reducer.utils';
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -110,7 +111,9 @@ export const CartProvider = ({ children }) => {
   };
 
   const setIsCartOpen = (bool) => {
-    dispatch({ type: 'SET_IS_CART_OPEN', payload: bool })
+    // dispatch({ type: 'SET_IS_CART_OPEN', payload: bool })
+    dispatch(createAction('SET_IS_CART_OPEN', bool))
+
   }
 
 
