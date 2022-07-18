@@ -10,6 +10,10 @@ import { useEffect } from 'react';
 import { setCurrentUser } from './store/user/user.action';
 
 import { useDispatch } from 'react-redux';
+import { setCategoriesMap } from './store/categories/category.actions';
+
+import { getCategoriesAndDocuments } from './utils/firebase/firebase.utils';
+
 
 import {
   onAuthStateChangedListener,
@@ -28,6 +32,16 @@ const App = () => {
     });
 
     return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    const getCategoriesMap = async () => {
+      const categoryMap = await getCategoriesAndDocuments();
+      console.log(categoryMap);
+      setCategoriesMap(categoryMap);
+    };
+
+    getCategoriesMap();
   }, []);
 
   return (
