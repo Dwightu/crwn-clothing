@@ -4,8 +4,8 @@ import { Outlet, Link } from 'react-router-dom';
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
 
-import { CartContext } from '../../contexts/cart.context';
 
+import { selectIsCartOpen } from '../../store/cart/cart.selector';
 import { selectCurrentUser } from '../../store/user/user.selector';
 
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
@@ -16,8 +16,7 @@ import './navigation.styles.scss';
 import { useSelector } from 'react-redux';
 
 const Navigation = () => {
-  const { isCartOpen } = useContext(CartContext);
-
+  const isCartOpen = useSelector(selectIsCartOpen);
   const currentUser = useSelector(selectCurrentUser)
 
   return (
