@@ -47,5 +47,9 @@
     .price {
       width: 10%;
     }
+
+    @media screen and (max-width:992px) {
+      margin-bottom: 30px !important;
+    }
   }
 }

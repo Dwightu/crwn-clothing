@@ -5,6 +5,11 @@ body {
   font-family: 'Edu NSW ACT Foundation', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media screen and (max-width:800px) {
+    padding: 10px
+  }
+
 }
 
 code {
